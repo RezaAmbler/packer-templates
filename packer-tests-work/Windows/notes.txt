@@ -1,0 +1,4 @@
+      "vmx_data": {
+        "RemoteDisplay.vnc.enabled": "false",
+        "RemoteDisplay.vnc.port": "5900",
+      }

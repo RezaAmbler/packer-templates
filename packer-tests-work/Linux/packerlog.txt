@@ -1,0 +1,330 @@
+2018/12/22 00:06:03 [INFO] Packer version: 1.3.3
+2018/12/22 00:06:03 Packer Target OS/Arch: windows amd64
+2018/12/22 00:06:03 Built with Go Version: go1.11.2
+2018/12/22 00:06:03 Using internal plugin for openstack
+2018/12/22 00:06:03 Using internal plugin for parallels-iso
+2018/12/22 00:06:03 Using internal plugin for scaleway
+2018/12/22 00:06:03 Using internal plugin for digitalocean
+2018/12/22 00:06:03 Using internal plugin for null
+2018/12/22 00:06:03 Using internal plugin for lxc
+2018/12/22 00:06:03 Using internal plugin for ncloud
+2018/12/22 00:06:03 Using internal plugin for parallels-pvm
+2018/12/22 00:06:03 Using internal plugin for vmware-vmx
+2018/12/22 00:06:03 Using internal plugin for amazon-ebs
+2018/12/22 00:06:03 Using internal plugin for amazon-instance
+2018/12/22 00:06:03 Using internal plugin for profitbricks
+2018/12/22 00:06:03 Using internal plugin for virtualbox-ovf
+2018/12/22 00:06:03 Using internal plugin for azure-arm
+2018/12/22 00:06:03 Using internal plugin for googlecompute
+2018/12/22 00:06:03 Using internal plugin for oracle-classic
+2018/12/22 00:06:03 Using internal plugin for oracle-oci
+2018/12/22 00:06:03 Using internal plugin for triton
+2018/12/22 00:06:03 Using internal plugin for vmware-iso
+2018/12/22 00:06:03 Using internal plugin for alicloud-ecs
+2018/12/22 00:06:03 Using internal plugin for hyperv-vmcx
+2018/12/22 00:06:03 Using internal plugin for lxd
+2018/12/22 00:06:03 Using internal plugin for qemu
+2018/12/22 00:06:03 Using internal plugin for cloudstack
+2018/12/22 00:06:03 Using internal plugin for docker
+2018/12/22 00:06:03 Using internal plugin for file
+2018/12/22 00:06:03 Using internal plugin for oneandone
+2018/12/22 00:06:03 Using internal plugin for virtualbox-iso
+2018/12/22 00:06:03 Using internal plugin for amazon-chroot
+2018/12/22 00:06:03 Using internal plugin for amazon-ebsvolume
+2018/12/22 00:06:03 Using internal plugin for hcloud
+2018/12/22 00:06:03 Using internal plugin for amazon-ebssurrogate
+2018/12/22 00:06:03 Using internal plugin for hyperv-iso
+2018/12/22 00:06:03 Using internal plugin for breakpoint
+2018/12/22 00:06:03 Using internal plugin for chef-client
+2018/12/22 00:06:03 Using internal plugin for file
+2018/12/22 00:06:03 Using internal plugin for powershell
+2018/12/22 00:06:03 Using internal plugin for shell-local
+2018/12/22 00:06:03 Using internal plugin for ansible
+2018/12/22 00:06:03 Using internal plugin for ansible-local
+2018/12/22 00:06:03 Using internal plugin for puppet-server
+2018/12/22 00:06:03 Using internal plugin for shell
+2018/12/22 00:06:03 Using internal plugin for windows-restart
+2018/12/22 00:06:03 Using internal plugin for chef-solo
+2018/12/22 00:06:03 Using internal plugin for converge
+2018/12/22 00:06:03 Using internal plugin for puppet-masterless
+2018/12/22 00:06:03 Using internal plugin for salt-masterless
+2018/12/22 00:06:03 Using internal plugin for windows-shell
+2018/12/22 00:06:03 Using internal plugin for docker-import
+2018/12/22 00:06:03 Using internal plugin for shell-local
+2018/12/22 00:06:03 Using internal plugin for artifice
+2018/12/22 00:06:03 Using internal plugin for amazon-import
+2018/12/22 00:06:03 Using internal plugin for checksum
+2018/12/22 00:06:03 Using internal plugin for docker-save
+2018/12/22 00:06:03 Using internal plugin for googlecompute-export
+2018/12/22 00:06:03 Using internal plugin for googlecompute-import
+2018/12/22 00:06:03 Using internal plugin for alicloud-import
+2018/12/22 00:06:03 Using internal plugin for manifest
+2018/12/22 00:06:03 Using internal plugin for vagrant
+2018/12/22 00:06:03 Using internal plugin for vagrant-cloud
+2018/12/22 00:06:03 Using internal plugin for vsphere
+2018/12/22 00:06:03 Using internal plugin for vsphere-template
+2018/12/22 00:06:03 Using internal plugin for docker-push
+2018/12/22 00:06:03 Using internal plugin for docker-tag
+2018/12/22 00:06:03 Using internal plugin for compress
+2018/12/22 00:06:03 Attempting to open config file: C:\Users\reza\packer.config
+2018/12/22 00:06:03 [WARN] Config file doesn't exist: C:\Users\reza\packer.config
+2018/12/22 00:06:03 Packer config: &{DisableCheckpoint:false DisableCheckpointSignature:false PluginMinPort:10000 PluginMaxPort:25000 Builders:map[amazon-ebsvolume:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebsvolume ncloud:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-ncloud googlecompute:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-googlecompute oneandone:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oneandone virtualbox-iso:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-virtualbox-iso amazon-chroot:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-chroot openstack:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-openstack triton:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-triton docker:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-docker parallels-iso:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-parallels-iso null:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-null azure-arm:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-azure-arm digitalocean:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-digitalocean parallels-pvm:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-parallels-pvm vmware-iso:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-vmware-iso alicloud-ecs:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-alicloud-ecs qemu:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-qemu amazon-ebssurrogate:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebssurrogate hyperv-iso:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hyperv-iso scaleway:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-scaleway lxc:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-lxc amazon-ebs:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebs profitbricks:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-profitbricks virtualbox-ovf:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-virtualbox-ovf hyperv-vmcx:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hyperv-vmcx vmware-vmx:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-vmware-vmx lxd:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-lxd hcloud:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hcloud cloudstack:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-cloudstack file:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-file amazon-instance:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-instance oracle-classic:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oracle-classic oracle-oci:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oracle-oci] PostProcessors:map[vagrant-cloud:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vagrant-cloud vsphere:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vsphere docker-import:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-import artifice:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-artifice docker-save:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-save googlecompute-import:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-googlecompute-import vagrant:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vagrant amazon-import:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-amazon-import checksum:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-checksum docker-push:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-push googlecompute-export:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-googlecompute-export alicloud-import:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-alicloud-import vsphere-template:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vsphere-template docker-tag:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-tag compress:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-compress shell-local:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-shell-local manifest:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-manifest] Provisioners:map[breakpoint:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-breakpoint ansible-local:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-ansible-local puppet-server:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-puppet-server converge:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-converge salt-masterless:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-salt-masterless windows-shell:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-windows-shell file:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-file shell-local:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-shell-local ansible:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-ansible shell:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-shell puppet-masterless:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-puppet-masterless chef-solo:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-chef-solo chef-client:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-chef-client powershell:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-powershell windows-restart:C:\ProgramData\chocolatey\lib\packer\tools\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-windows-restart]}
+2018/12/22 00:06:03 Setting cache directory: C:\Users\reza\Documents\packer\packer-tests-work\Linux\packer_cache
+2018/12/22 00:06:03 Loading builder: vmware-iso
+2018/12/22 00:06:03 Plugin could not be found. Checking same directory as executable.
+2018/12/22 00:06:03 Current exe path: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:03 Creating plugin client for path: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:03 Starting plugin: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe []string{"C:\\ProgramData\\chocolatey\\lib\\packer\\tools\\packer.exe", "plugin", "packer-builder-vmware-iso"}
+2018/12/22 00:06:03 Waiting for RPC address for: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 [INFO] Packer version: 1.3.3
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Packer Target OS/Arch: windows amd64
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Built with Go Version: go1.11.2
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Attempting to open config file: C:\Users\reza\packer.config
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 [WARN] Config file doesn't exist: C:\Users\reza\packer.config
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Packer config: &{DisableCheckpoint:false DisableCheckpointSignature:false PluginMinPort:10000 PluginMaxPort:25000 Builders:map[] PostProcessors:map[] Provisioners:map[]}
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Setting cache directory: C:\Users\reza\Documents\packer\packer-tests-work\Linux\packer_cache
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 args: []string{"packer-builder-vmware-iso"}
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Plugin minimum port: 10000
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Plugin maximum port: 25000
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Plugin address: tcp 127.0.0.1:10000
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Waiting for connection...
+2018/12/22 00:06:03 packer.exe: 2018/12/22 00:06:03 Serving a plugin connection...
+2018/12/22 00:06:03 Loading provisioner: shell
+2018/12/22 00:06:03 Plugin could not be found. Checking same directory as executable.
+2018/12/22 00:06:03 Current exe path: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:03 Creating plugin client for path: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:03 Starting plugin: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe []string{"C:\\ProgramData\\chocolatey\\lib\\packer\\tools\\packer.exe", "plugin", "packer-provisioner-shell"}
+2018/12/22 00:06:03 Waiting for RPC address for: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 [INFO] Packer version: 1.3.3
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Packer Target OS/Arch: windows amd64
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Built with Go Version: go1.11.2
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Attempting to open config file: C:\Users\reza\packer.config
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 [WARN] Config file doesn't exist: C:\Users\reza\packer.config
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Packer config: &{DisableCheckpoint:false DisableCheckpointSignature:false PluginMinPort:10000 PluginMaxPort:25000 Builders:map[] PostProcessors:map[] Provisioners:map[]}
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Setting cache directory: C:\Users\reza\Documents\packer\packer-tests-work\Linux\packer_cache
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 args: []string{"packer-provisioner-shell"}
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Plugin minimum port: 10000
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Plugin maximum port: 25000
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Plugin address: tcp 127.0.0.1:10000
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Waiting for connection...
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Serving a plugin connection...
+2018/12/22 00:06:04 ui: vmware-iso output will be in this color.
+2018/12/22 00:06:04 ui: 
+2018/12/22 00:06:04 Build debug mode: false
+2018/12/22 00:06:04 Force build: false
+2018/12/22 00:06:04 On error: 
+2018/12/22 00:06:04 Preparing build: vmware-iso
+2018/12/22 00:06:04 Waiting on builds to complete...
+2018/12/22 00:06:04 Starting build run: vmware-iso
+2018/12/22 00:06:04 Running builder: vmware-iso
+2018/12/22 00:06:04 [INFO] (telemetry) Starting builder vmware-iso
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Searching for file 'C:/Program Files (x86)/VMware/VMware Workstation/vmware.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Found file 'C:/Program Files (x86)/VMware/VMware Workstation/vmware.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Searching for file 'C:/Program Files (x86)/VMware/VMware Workstation/vmrun.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Found file 'C:/Program Files (x86)/VMware/VMware Workstation/vmrun.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Searching for file 'C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Found file 'C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 VMware app path: C:/Program Files (x86)/VMware/VMware Workstation/vmware.exe
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 vmrun path: C:/Program Files (x86)/VMware/VMware Workstation/vmrun.exe
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 vdisk-manager path: C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Detected VMware WS version: 12
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Testing vmware driver *common.Workstation10Driver. Success: true
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Searching for file 'C:/Program Files (x86)/VMware/VMware Workstation/linux.iso'
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Found file 'C:/Program Files (x86)/VMware/VMware Workstation/linux.iso'
+2018/12/22 00:06:04 ui: ==> vmware-iso: Retrieving ISO
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Acquiring lock to download: file:///P:/ISO/CentOS-7-x86_64-Minimal-1810.iso
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Parsed URL: &url.URL{Scheme:"file", Opaque:"", User:(*url.Userinfo)(nil), Host:"", Path:"/P:/ISO/CentOS-7-x86_64-Minimal-1810.iso", RawPath:"", ForceQuery:false, RawQuery:"", Fragment:""}
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 [DEBUG] Using local file: P:/ISO/CentOS-7-x86_64-Minimal-1810.iso
+2018/12/22 00:06:04 packer.exe: 2018/12/22 00:06:04 Verifying checksum of P:/ISO/CentOS-7-x86_64-Minimal-1810.iso
+2018/12/22 00:06:40 ui:     vmware-iso: Using file in-place: file:///P:/ISO/CentOS-7-x86_64-Minimal-1810.iso
+2018/12/22 00:06:40 packer.exe: 2018/12/22 00:06:40 No floppy files specified. Floppy disk will not be made.
+2018/12/22 00:06:40 ui: ==> vmware-iso: Creating required virtual machine disks
+2018/12/22 00:06:40 packer.exe: 2018/12/22 00:06:40 [INFO] Creating disk with Path: output-vmware-iso\disk.vmdk and Size: 8192M
+2018/12/22 00:06:40 packer.exe: 2018/12/22 00:06:40 Executing: C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe -c -s 8192M -a lsilogic -t 1 output-vmware-iso\disk.vmdk
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 stdout: Creating disk 'output-vmware-iso\disk.vmdk'
+2018/12/22 00:06:41 packer.exe: Virtual disk creation successful.
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 stderr:
+2018/12/22 00:06:41 ui: ==> vmware-iso: Building and writing VMX file
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Writing VMX to: output-vmware-iso\packer-vmware-iso.vmx
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Configuring VMX...
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Writing VMX to: output-vmware-iso\packer-vmware-iso.vmx
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Suppressing messages in VMX
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Trying port: 8503
+2018/12/22 00:06:41 ui: ==> vmware-iso: Starting HTTP server on port 8503
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Looking for available port between 5900 and 6000
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Trying port: 5900
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Trying port: 5967
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Found available VNC port: 5967
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Writing VMX to: output-vmware-iso\packer-vmware-iso.vmx
+2018/12/22 00:06:41 ui: ==> vmware-iso: Starting virtual machine...
+2018/12/22 00:06:41 packer.exe: 2018/12/22 00:06:41 Executing: C:/Program Files (x86)/VMware/VMware Workstation/vmrun.exe -T ws start output-vmware-iso\packer-vmware-iso.vmx gui
+2018/12/22 00:06:47 packer.exe: 2018/12/22 00:06:47 stdout:
+2018/12/22 00:06:47 packer.exe: 2018/12/22 00:06:47 stderr:
+2018/12/22 00:06:47 ui: ==> vmware-iso: Waiting 20s for boot...
+2018/12/22 00:07:07 ui: ==> vmware-iso: Connecting to VM via VNC (127.0.0.1:5967)
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Connected to VNC desktop: packer-vmware-iso
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 HostIP discovered device matching nat: vmnet8
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Searching for file 'C:/ProgramData/VMware/vmnetdhcp.conf'
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Found file 'C:/ProgramData/VMware/vmnetdhcp.conf'
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Host IP for the VMware machine: 192.168.36.1
+2018/12/22 00:07:07 ui: ==> vmware-iso: Typing the boot command over VNC...
+2018/12/22 00:07:07 packer.exe: 2018/12/22 00:07:07 Special code '<tab>' found, replacing with: 0xFF09
+2018/12/22 00:07:08 packer.exe: 2018/12/22 00:07:08 Sending char ' ', code 0x20, shift false
+2018/12/22 00:07:08 packer.exe: 2018/12/22 00:07:08 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:08 packer.exe: 2018/12/22 00:07:08 Sending char 'e', code 0x65, shift false
+2018/12/22 00:07:08 packer.exe: 2018/12/22 00:07:08 Sending char 'x', code 0x78, shift false
+2018/12/22 00:07:08 packer.exe: 2018/12/22 00:07:08 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:09 packer.exe: 2018/12/22 00:07:09 Sending char ' ', code 0x20, shift false
+2018/12/22 00:07:09 packer.exe: 2018/12/22 00:07:09 Sending char 'k', code 0x6B, shift false
+2018/12/22 00:07:09 packer.exe: 2018/12/22 00:07:09 Sending char 's', code 0x73, shift false
+2018/12/22 00:07:09 packer.exe: 2018/12/22 00:07:09 Sending char '=', code 0x3D, shift false
+2018/12/22 00:07:09 packer.exe: 2018/12/22 00:07:09 Sending char 'h', code 0x68, shift false
+2018/12/22 00:07:10 packer.exe: 2018/12/22 00:07:10 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:10 packer.exe: 2018/12/22 00:07:10 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:10 packer.exe: 2018/12/22 00:07:10 Sending char 'p', code 0x70, shift false
+2018/12/22 00:07:10 packer.exe: 2018/12/22 00:07:10 Sending char ':', code 0x3A, shift true
+2018/12/22 00:07:11 packer.exe: 2018/12/22 00:07:11 Sending char '/', code 0x2F, shift false
+2018/12/22 00:07:11 packer.exe: 2018/12/22 00:07:11 Sending char '/', code 0x2F, shift false
+2018/12/22 00:07:11 packer.exe: 2018/12/22 00:07:11 Sending char 'l', code 0x6C, shift false
+2018/12/22 00:07:11 packer.exe: 2018/12/22 00:07:11 Sending char 'e', code 0x65, shift false
+2018/12/22 00:07:11 packer.exe: 2018/12/22 00:07:11 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:12 packer.exe: 2018/12/22 00:07:12 Sending char 'h', code 0x68, shift false
+2018/12/22 00:07:12 packer.exe: 2018/12/22 00:07:12 Sending char 'a', code 0x61, shift false
+2018/12/22 00:07:12 packer.exe: 2018/12/22 00:07:12 Sending char 'l', code 0x6C, shift false
+2018/12/22 00:07:12 packer.exe: 2018/12/22 00:07:12 Sending char 'n', code 0x6E, shift false
+2018/12/22 00:07:12 packer.exe: 2018/12/22 00:07:12 Sending char 'e', code 0x65, shift false
+2018/12/22 00:07:13 packer.exe: 2018/12/22 00:07:13 Sending char 't', code 0x74, shift false
+2018/12/22 00:07:13 packer.exe: 2018/12/22 00:07:13 Sending char 'w', code 0x77, shift false
+2018/12/22 00:07:13 packer.exe: 2018/12/22 00:07:13 Sending char 'o', code 0x6F, shift false
+2018/12/22 00:07:13 packer.exe: 2018/12/22 00:07:13 Sending char 'r', code 0x72, shift false
+2018/12/22 00:07:13 packer.exe: 2018/12/22 00:07:13 Sending char 'k', code 0x6B, shift false
+2018/12/22 00:07:14 packer.exe: 2018/12/22 00:07:14 Sending char 's', code 0x73, shift false
+2018/12/22 00:07:14 packer.exe: 2018/12/22 00:07:14 Sending char '.', code 0x2E, shift false
+2018/12/22 00:07:14 packer.exe: 2018/12/22 00:07:14 Sending char 'c', code 0x63, shift false
+2018/12/22 00:07:14 packer.exe: 2018/12/22 00:07:14 Sending char 'o', code 0x6F, shift false
+2018/12/22 00:07:14 packer.exe: 2018/12/22 00:07:14 Sending char 'm', code 0x6D, shift false
+2018/12/22 00:07:15 packer.exe: 2018/12/22 00:07:15 Sending char '/', code 0x2F, shift false
+2018/12/22 00:07:15 packer.exe: 2018/12/22 00:07:15 Sending char 'k', code 0x6B, shift false
+2018/12/22 00:07:15 packer.exe: 2018/12/22 00:07:15 Sending char 's', code 0x73, shift false
+2018/12/22 00:07:15 packer.exe: 2018/12/22 00:07:15 Sending char '.', code 0x2E, shift false
+2018/12/22 00:07:15 packer.exe: 2018/12/22 00:07:15 Sending char 'c', code 0x63, shift false
+2018/12/22 00:07:16 packer.exe: 2018/12/22 00:07:16 Sending char 'f', code 0x66, shift false
+2018/12/22 00:07:16 packer.exe: 2018/12/22 00:07:16 Sending char 'g', code 0x67, shift false
+2018/12/22 00:07:16 packer.exe: 2018/12/22 00:07:16 Special code '<enter>' found, replacing with: 0xFF0D
+2018/12/22 00:07:16 packer.exe: 2018/12/22 00:07:16 [INFO] Waiting 1s
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Lookup up IP information...
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 [DEBUG] Unable to get address during connection step: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 [INFO] Waiting for SSH, up to timeout: 2h46m40s
+2018/12/22 00:07:17 ui: ==> vmware-iso: Waiting for SSH to become available...
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Lookup up IP information...
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:17 packer.exe: 2018/12/22 00:07:17 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 Lookup up IP information...
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:22 packer.exe: 2018/12/22 00:07:22 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 Lookup up IP information...
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:27 packer.exe: 2018/12/22 00:07:27 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 Lookup up IP information...
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:32 packer.exe: 2018/12/22 00:07:32 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 Lookup up IP information...
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:37 packer.exe: 2018/12/22 00:07:37 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 Lookup up IP information...
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:42 packer.exe: 2018/12/22 00:07:42 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 Lookup up IP information...
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:47 packer.exe: 2018/12/22 00:07:47 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 Lookup up IP information...
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:52 packer.exe: 2018/12/22 00:07:52 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 Lookup up IP information...
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:07:57 packer.exe: 2018/12/22 00:07:57 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 Lookup up IP information...
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:08:02 packer.exe: 2018/12/22 00:08:02 [DEBUG] Error getting SSH address: IP lookup failed: None of the found device(s) [vmnet8] has a DHCP lease for MAC 00:0c:29:d5:79:1c
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Searching for file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Found file 'C:/ProgramData/VMware/netmap.conf'
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Located networkmapper configuration file using Workstation: C:/ProgramData/VMware/netmap.conf
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 GuestIP discovered device matching nat: vmnet8
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Lookup up IP information...
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 GuestAddress found MAC address in VMX: 00:0c:29:d5:79:1c
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Trying DHCP leases path: C:/ProgramData/VMware/vmnetdhcp.leases
+2018/12/22 00:08:07 packer.exe: 2018/12/22 00:08:07 Detected IP: 192.168.36.128
+2018/12/22 00:08:11 packer.exe: 2018/12/22 00:08:11 [DEBUG] TCP connection to SSH ip/port failed: dial tcp 192.168.36.128:22: connectex: No connection could be made because the target machine actively refused it.

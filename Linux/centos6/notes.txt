@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------
+PACKERLOG
+PowerShell : 
+  $env:PACKER_LOG=1
+  $env:PACKER_LOG_PATH="packerlog.txt"
+-------------------------------------------------------------------------------
 Disk_Type_ID:
   https://www.packer.io/docs/builders/vmware-iso.html
   Type ID	Description

@@ -6,10 +6,10 @@
     "do_api_token"  : "",
     "root_password": "",
     "vm_name": "centos610-packer-test",
-    "output_path": "D:/packer/builds",
-    "iso_url": "file:/D:/ISO/CentOS-6.10-x86_64-minimal.iso",
-    "iso_checksum": "7C0DEE2A0494DABD84809B72DDB4B761F9EF92B78A506AEF709B531C54D30770",
-    "iso_checksum_type": "sha256",
+    "output_path": "",
+    "iso_url": "",
+    "iso_checksum": "",
+    "iso_checksum_type": "",
     "disk_size" : "10000",
     "disk_type" : "0",
     "vmware_guest_os_type" : "centos-64",
@@ -47,8 +47,8 @@
         "type": "shell",
         "inline": [
           "sudo yum update",
-          "sudo yum upgrade",
-          "sudo yum install open-vm-tools"
+          "sudo yum upgrade -y",
+          "sudo yum install open-vm-tools -y"
         ]
       }
     ]

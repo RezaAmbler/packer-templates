@@ -1,0 +1,18 @@
+{
+	"variables" : {
+		"aws_access_key": "{{env `AWS_ACCESS_KEY`}}",
+		"aws_secret_key": "{{env `AWS_SECRET_KEY`}}"
+	},
+	"builders" : [
+		{
+			"type" : "amazon-ebs",
+			"region" : "us-east-1",
+			"access_key" : "{{user `aws_access_key`}}",
+			"secret_key" : "{{user `aws_secret_key`}}",
+			"source_ami" : "ami-0f8c82faeb08f15da",
+			"instance_type" : "a1.medium",
+			"ami_name" : "packer-example {{ uuid | clean_ami_name}}",
+			"ssh_username" : "ec2-user"
+		}
+	]
+}

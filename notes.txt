@@ -1,0 +1,54 @@
+File : 2012r2s-workstation.json
+  "Windows could not apply the unattend answer file's <DiskConfiguration> setting."
+  https://github.com/joefitzgerald/packer-windows/issues/259
+  Adding the following to the vmx_data portion of the vmware-iso type build appears to fix this issue. Need to identify details on why this fixes it.
+  "vmx_data": 
+  {
+    "scsi0.virtualDev": "lsisas1068",
+  }
+
+
+Extra Parameters:
+- Provisioner:
+	{
+        "type": "windows-update",
+        "search_criteria": "IsInstalled=0",
+        "filters": [
+            "exclude:$_.Title -like '*Preview*'",
+            "include:$true"
+        ],
+        "update_limit": 100
+    }
+
+{
+    "type": "windows-update",
+    "search_criteria": "IsInstalled=0",
+    "filters": [
+        "exclude:$_.Title -like '*Preview*'",
+        "include:$true"
+    ],
+    "update_limit": 100
+}
+
+"scripts/Install-Nuget.ps1",
+"scripts/Invoke-Defrag.ps1",
+
+------------------------------------------------------------
+
+- Post Processors :
+"post-processors": [
+  {
+    "type": "shell-local",
+    "inline": ["ovftool ../builds/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.vmx ../builds/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "],
+    "only": ["vmware-{{ user `name` }}"]
+  }
+
+  {
+  	"type": "shell-local",
+  	"inline": ["ovftool d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.vmx d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "],
+  }
+
+   {
+        "type": "shell-local",
+        "inline": ["C:/Program Files (x86)/VMware/VMware Workstation/OVFTool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{ user `name` }}.vmx d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "]
+    }

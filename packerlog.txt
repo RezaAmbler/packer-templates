@@ -1,0 +1,79 @@
+2019/01/07 07:41:31 [INFO] Packer version: 1.3.3
+2019/01/07 07:41:31 Packer Target OS/Arch: windows amd64
+2019/01/07 07:41:31 Built with Go Version: go1.11.2
+2019/01/07 07:41:31 [DEBUG] Discovered plugin: windows-update = D:\packer\bin\packer-provisioner-windows-update.exe
+2019/01/07 07:41:32 Using internal plugin for qemu
+2019/01/07 07:41:32 Using internal plugin for triton
+2019/01/07 07:41:32 Using internal plugin for hyperv-iso
+2019/01/07 07:41:32 Using internal plugin for lxd
+2019/01/07 07:41:32 Using internal plugin for oneandone
+2019/01/07 07:41:32 Using internal plugin for oracle-classic
+2019/01/07 07:41:32 Using internal plugin for file
+2019/01/07 07:41:32 Using internal plugin for googlecompute
+2019/01/07 07:41:32 Using internal plugin for virtualbox-ovf
+2019/01/07 07:41:32 Using internal plugin for hyperv-vmcx
+2019/01/07 07:41:32 Using internal plugin for parallels-pvm
+2019/01/07 07:41:32 Using internal plugin for digitalocean
+2019/01/07 07:41:32 Using internal plugin for hcloud
+2019/01/07 07:41:32 Using internal plugin for virtualbox-iso
+2019/01/07 07:41:32 Using internal plugin for vmware-vmx
+2019/01/07 07:41:32 Using internal plugin for amazon-ebs
+2019/01/07 07:41:32 Using internal plugin for azure-arm
+2019/01/07 07:41:32 Using internal plugin for docker
+2019/01/07 07:41:32 Using internal plugin for cloudstack
+2019/01/07 07:41:32 Using internal plugin for oracle-oci
+2019/01/07 07:41:32 Using internal plugin for parallels-iso
+2019/01/07 07:41:32 Using internal plugin for amazon-ebssurrogate
+2019/01/07 07:41:32 Using internal plugin for amazon-ebsvolume
+2019/01/07 07:41:32 Using internal plugin for null
+2019/01/07 07:41:32 Using internal plugin for profitbricks
+2019/01/07 07:41:32 Using internal plugin for vmware-iso
+2019/01/07 07:41:32 Using internal plugin for alicloud-ecs
+2019/01/07 07:41:32 Using internal plugin for amazon-chroot
+2019/01/07 07:41:32 Using internal plugin for ncloud
+2019/01/07 07:41:32 Using internal plugin for openstack
+2019/01/07 07:41:32 Using internal plugin for scaleway
+2019/01/07 07:41:32 Using internal plugin for amazon-instance
+2019/01/07 07:41:32 Using internal plugin for lxc
+2019/01/07 07:41:32 Using internal plugin for puppet-server
+2019/01/07 07:41:32 Using internal plugin for windows-restart
+2019/01/07 07:41:32 Using internal plugin for breakpoint
+2019/01/07 07:41:32 Using internal plugin for converge
+2019/01/07 07:41:32 Using internal plugin for puppet-masterless
+2019/01/07 07:41:32 Using internal plugin for ansible
+2019/01/07 07:41:32 Using internal plugin for windows-shell
+2019/01/07 07:41:32 Using internal plugin for shell
+2019/01/07 07:41:32 Using internal plugin for chef-client
+2019/01/07 07:41:32 Using internal plugin for chef-solo
+2019/01/07 07:41:32 Using internal plugin for salt-masterless
+2019/01/07 07:41:32 Using internal plugin for shell-local
+2019/01/07 07:41:32 Using internal plugin for ansible-local
+2019/01/07 07:41:32 Using internal plugin for file
+2019/01/07 07:41:32 Using internal plugin for powershell
+2019/01/07 07:41:32 Using internal plugin for alicloud-import
+2019/01/07 07:41:32 Using internal plugin for docker-import
+2019/01/07 07:41:32 Using internal plugin for docker-save
+2019/01/07 07:41:32 Using internal plugin for vagrant
+2019/01/07 07:41:32 Using internal plugin for vsphere
+2019/01/07 07:41:32 Using internal plugin for amazon-import
+2019/01/07 07:41:32 Using internal plugin for compress
+2019/01/07 07:41:32 Using internal plugin for vagrant-cloud
+2019/01/07 07:41:32 Using internal plugin for artifice
+2019/01/07 07:41:32 Using internal plugin for docker-push
+2019/01/07 07:41:32 Using internal plugin for docker-tag
+2019/01/07 07:41:32 Using internal plugin for shell-local
+2019/01/07 07:41:32 Using internal plugin for checksum
+2019/01/07 07:41:32 Using internal plugin for googlecompute-export
+2019/01/07 07:41:32 Using internal plugin for googlecompute-import
+2019/01/07 07:41:32 Using internal plugin for manifest
+2019/01/07 07:41:32 Using internal plugin for vsphere-template
+2019/01/07 07:41:32 Attempting to open config file: C:\Users\rezaa\packer.config
+2019/01/07 07:41:32 [WARN] Config file doesn't exist: C:\Users\rezaa\packer.config
+2019/01/07 07:41:32 Packer config: &{DisableCheckpoint:false DisableCheckpointSignature:false PluginMinPort:10000 PluginMaxPort:25000 Builders:map[lxd:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-lxd oracle-classic:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oracle-classic docker:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-docker scaleway:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-scaleway amazon-chroot:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-chroot parallels-pvm:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-parallels-pvm hcloud:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hcloud azure-arm:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-azure-arm amazon-ebssurrogate:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebssurrogate alicloud-ecs:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-alicloud-ecs digitalocean:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-digitalocean vmware-vmx:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-vmware-vmx amazon-ebsvolume:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebsvolume null:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-null qemu:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-qemu amazon-ebs:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-ebs openstack:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-openstack parallels-iso:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-parallels-iso profitbricks:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-profitbricks vmware-iso:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-vmware-iso triton:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-triton hyperv-iso:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hyperv-iso googlecompute:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-googlecompute hyperv-vmcx:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-hyperv-vmcx oracle-oci:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oracle-oci amazon-instance:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-amazon-instance virtualbox-ovf:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-virtualbox-ovf virtualbox-iso:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-virtualbox-iso ncloud:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-ncloud lxc:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-lxc oneandone:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-oneandone file:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-file cloudstack:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-builder-cloudstack] PostProcessors:map[vagrant:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vagrant googlecompute-export:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-googlecompute-export docker-save:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-save vsphere:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vsphere amazon-import:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-amazon-import vagrant-cloud:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vagrant-cloud googlecompute-import:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-googlecompute-import manifest:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-manifest alicloud-import:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-alicloud-import compress:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-compress docker-tag:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-tag shell-local:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-shell-local vsphere-template:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-vsphere-template docker-import:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-import artifice:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-artifice docker-push:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-docker-push checksum:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-post-processor-checksum] Provisioners:map[converge:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-converge chef-client:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-chef-client shell-local:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-shell-local ansible-local:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-ansible-local powershell:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-powershell puppet-server:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-puppet-server windows-restart:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-windows-restart salt-masterless:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-salt-masterless windows-shell:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-windows-shell shell:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-shell puppet-masterless:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-puppet-masterless chef-solo:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-chef-solo windows-update:D:\packer\bin\packer-provisioner-windows-update.exe breakpoint:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-breakpoint ansible:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-ansible file:D:\packer\bin\packer.exe-PACKERSPACE-plugin-PACKERSPACE-packer-provisioner-file]}
+2019/01/07 07:41:32 Setting cache directory: C:\Users\rezaa\Documents\GitHub\packer-vmware-templates\packer_cache
+2019/01/07 07:41:32 machine readable: version []string{"1.3.3"}
+2019/01/07 07:41:32 machine readable: version-prelease []string{""}
+2019/01/07 07:41:32 machine readable: version-commit []string{"508b6efb4+CHANGES"}
+2019/01/07 07:41:32 ui: Packer v1.3.3
+2019/01/07 07:41:32 [INFO] (telemetry) Finalizing.
+2019/01/07 07:41:32 waiting for all plugin processes to complete...

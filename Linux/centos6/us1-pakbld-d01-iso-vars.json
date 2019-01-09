@@ -1,0 +1,6 @@
+{
+		"output_path": "E:/packer/builds",
+		"iso_url": "file:/E:/ISO/CentOS-6.10-x86_64-minimal.iso",
+	    "iso_checksum": "7C0DEE2A0494DABD84809B72DDB4B761F9EF92B78A506AEF709B531C54D30770",
+	    "iso_checksum_type": "sha256"
+}

@@ -38,17 +38,16 @@
       "ssh_port": 22,
       "ssh_username": "resmed",
       "ssh_password": "resmed",
-      "ssh_wait_timeout": "20m",
-       "shutdown_command": "shutdown -P now"
+      "ssh_wait_timeout": "20m"
     }
   ],
     "provisioners": [
       {
         "type": "shell",
         "inline": [
-          "sudo yum update",
-          "sudo yum upgrade -y",
-          "sudo yum install open-vm-tools -y"
+          "sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm",
+          "sudo yum install centos-release-scl-rh centos-release-scl rh-ruby24 open-vm-tools wget -y",
+          "sudo yum update -y"
         ]
       }
     ]

@@ -13,7 +13,8 @@
     "disk_size" : "10000",
     "disk_type" : "0",
     "vmware_guest_os_type" : "centos-64",
-    "ssh_pass" : "resmed"
+    "ssh_pass" : "resmed",
+    "boot_wait" : "10s"
   },
   "builders": [
     {
@@ -26,6 +27,7 @@
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "boot_wait" : "{{user `boot_wait`}}",
       "boot_command": [
          "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks.cfg<enter><wait>"
       ],

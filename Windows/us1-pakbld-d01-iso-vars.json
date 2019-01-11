@@ -1,0 +1,6 @@
+{
+    "output_path": "E:/packer/builds",
+	"iso_checksum_retail": "0E883CE28EB5C6F58A3A3007BE978D43EDB1035A4585506C1C4504C9E143408D",
+    "iso_url_retail": "file:/E:/ISO/SW_DVD9_Windows_Svr_Std_and_DataCtr_2012_R2_64Bit_English_-4_MLF_X19-82891.iso",
+    "iso_checksum_type": "sha256"
+}

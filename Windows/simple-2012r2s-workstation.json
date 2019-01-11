@@ -7,7 +7,8 @@
         "iso_checksum_type": "",
         "disk_size" : "40000",
         "output_path": "D:/packer/builds",
-        "ovf_output_path": "D:/packer/ovf"
+        "ovf_output_path": "D:/packer/ovf",
+        "timezone" : "Pacific Standard Time"
     },
     "builders": [
         {
@@ -45,41 +46,50 @@
     "provisioners": [
         {
             "type": "powershell",
+            "environment_vars": [
+                "packer_timezone={{ user `timezone` }}"
+                ],
+            "script": "scripts/Set-TimeZone.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Install-VMwareTools.ps1",
-                "scripts/Install-Net35.ps1",
-                "scripts/Install-WMF5.ps1"
+            "valid_exit_codes": [
+                0,
+                3010
             ]
         },
         {
-            "type": "windows-restart"
+          "type": "powershell",
+          "script": "scripts/Install-Chocolatey.ps1",
+          "elevated_user": "vagrant",
+          "elevated_password": "vagrant"
         },
         {
-            "type": "powershell",
+            "type" : "powershell",
+            "script" : "scripts/Install-PowerShell5.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Set-WMF5SysPrepRegFix.ps1"
-            ]
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
         },
         {
-            "type": "powershell",
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Install-Choco-VMwareTools.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Remove-UpdateCache.ps1"
-            ]
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
         },
         {
-            "type": "windows-update",
-            "search_criteria": "IsInstalled=0",
-            "filters": [
-                "exclude:$_.Title -like '*Preview*'",
-                "include:$true"
-            ],
-            "update_limit": 100
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
         }
     ],
     "post-processors": [

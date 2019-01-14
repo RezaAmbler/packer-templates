@@ -7,6 +7,10 @@ File : 2012r2s-workstation.json
     "scsi0.virtualDev": "lsisas1068",
   }
 
+  #Choco ToDo
+  "inline" : ["choco install vmware-tools 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"]
+
+
 
 Extra Parameters:
 - Provisioner:

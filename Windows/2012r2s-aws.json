@@ -1,63 +1,93 @@
 {
+    "variables": {
+        "name": "Windows-2012R2-Test",
+        "aws_reza_access_key" : "",
+        "aws_reza_secret_access_key" : ""
+    },
     "builders": [
         {
             "type": "amazon-ebs",
-            "ami_name": "test-windows-2012-packer {{timestamp | clean_ami_name}}",
+            "ami_name": "test-windows-2012-packer-reza {{timestamp | clean_ami_name}}",
             "access_key" : "{{user `aws_reza_access_key`}}",
             "secret_key" : "{{user `aws_reza_secret_access_key`}}",
-            "region" : "us-east-1",
-            "source_ami" : "ami-085ea1972627f58fd",
-            "instance_type" : "t2.micro",
+            "region" : "us-west-2",
+            "source_ami" : "ami-03833dcc7d9010c5a",
+            "instance_type" : "t2.medium",
+            "associate_public_ip_address" : "true",
+            "vpc_id" : "vpc-0f17a7b02da727a5c",
+            "subnet_id" : "subnet-0244786042ec22ca6",
+            "temporary_security_group_source_cidr" : "199.47.246.156/32",
             "communicator": "winrm",
             "winrm_username": "vagrant",
             "winrm_password": "vagrant",
             "winrm_timeout": "12h",
-            "winrm_port": "5985"
+            "winrm_port": "5985",
+            "tags": {
+                "OS_Version": "Windows 2012 R2",
+                "Release": "Latest",
+                "Base_AMI_Name": "{{ .SourceAMIName }}",
+                "Extra": "{{ .SourceAMITags.TagName }}",
+                "Purepose" : "Packer Testing",
+                "Timestamp" : "{{timestamp}}",
+                "Hoomann" : "Reza Ambler"
+            }
         }
     ],
     "provisioners": [
         {
             "type": "powershell",
+            "environment_vars": [
+                "packer_timezone={{ user `timezone` }}"
+            ],
+            "script": "scripts/Set-TimeZone.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Install-VMwareTools.ps1",
-                "scripts/Install-Net35.ps1",
-                "scripts/Install-WMF5.ps1"
+            "valid_exit_codes": [
+                0,
+                3010
             ]
         },
         {
-            "type": "windows-restart"
+          "type": "powershell",
+          "script": "scripts/Install-Chocolatey.ps1",
+          "elevated_user": "vagrant",
+          "elevated_password": "vagrant"
         },
         {
-            "type": "powershell",
+            "type" : "powershell",
+            "script" : "scripts/Install-PowerShell5.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Set-WMF5SysPrepRegFix.ps1"
-            ]
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
         },
         {
-            "type": "powershell",
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Install-Choco-VMwareTools.ps1",
             "elevated_user": "vagrant",
             "elevated_password": "vagrant",
-            "scripts": [
-                "scripts/Remove-UpdateCache.ps1"
-            ]
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
+        },
+        {
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "inline" : ["choco install vmware-tools 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
+            "elevated_user": "vagrant",
+            "elevated_password": "vagrant"
         }
     ],
     "post-processors": [
-    ],
-    "variables": {
-        "name": "Windows-2012R2-Test",
-        "guest_os_type": "windows8srv-64",
-        "iso_checksum_retail": "247EAEE5628850A41F0C51471656AAFB2492EA08",
-        "iso_url_retail": "file:/D:/ISO/SW_DVD9_Windows_Svr_Std_and_DataCtr_2012_R2_64Bit_English_-4_MLF_X19-82891.iso",
-        "iso_checksum_type": "sha1",
-        "disk_size" : "40000",
-        "output_path": "D:/packer/builds",
-        "ovf_output_path": "D:/packer/ovf",
-        "aws_reza_access_key" : "",
-        "aws_reza_secret_access_key" : ""
-    }
+    ]
 }

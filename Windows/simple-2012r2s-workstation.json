@@ -93,7 +93,7 @@
         },
         {
             "type" : "powershell",
-            "inline" : ["choco install vmware-tools 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
+            "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
             "elevated_user": "vagrant",
             "elevated_password": "vagrant"
         }

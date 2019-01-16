@@ -29,6 +29,7 @@
             "shutdown_timeout": "15m",
             "headless": "false",
             "guest_os_type": "{{ user `guest_os_type` }}",
+            "disk_type_id" : "4",
             "disk_size": "{{ user `disk_size` }}",
             "memory" : "3072",
             "cpus" : 3,
@@ -96,8 +97,27 @@
             "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
             "elevated_user": "vagrant",
             "elevated_password": "vagrant"
+        },
+        {
+            "type": "windows-update",
+            "search_criteria": "IsInstalled=0",
+            "filters": [
+                "exclude:$_.Title -like '*Preview*'",
+                "include:$true"
+            ],
+            "update_limit": 100
         }
     ],
     "post-processors": [
+        {
+            "type": "shell-local",
+            "inline": [
+              "d:/vmware/ovftool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{user `name`}}.vmx {{user `output_path`}}/{{user `name`}}.ova"
+            ]
+        },
+        {
+            "type": "shell-local",
+             "inline": ["aws s3 cp {{user `output_path`}}/{{user `name`}}.ova s3://rezaambler --profile=reza"]
+        }
     ]
 }

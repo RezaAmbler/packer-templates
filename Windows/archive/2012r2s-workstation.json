@@ -1,0 +1,78 @@
+{
+    "variables": {
+        "name": "Windows-2012R2-Test",
+        "guest_os_type": "windows8srv-64",
+        "iso_checksum_retail": "",
+        "iso_url_retail": "",
+        "iso_checksum_type": "",
+        "disk_size" : "40000",
+        "output_path": "D:/packer/builds",
+        "ovf_output_path": "D:/packer/ovf"
+    },
+    "builders": [
+        {
+            "type": "vmware-iso",
+            "vm_name": "{{ user `name` }}",
+            "vmdk_name": "{{ user `name` }}",
+            "iso_url": "{{ user `iso_url_retail` }}",
+            "iso_checksum": "{{ user `iso_checksum_retail` }}",
+            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+            "communicator": "winrm",
+            "winrm_username": "vagrant",
+            "winrm_password": "vagrant",
+            "winrm_timeout": "12h",
+            "winrm_port": "5985",
+            "vnc_port_min": 5900,
+            "vnc_port_max": 5980,
+            "shutdown_command": "a:/Start-Shutdown.bat",
+            "shutdown_timeout": "15m",
+            "headless": "false",
+            "guest_os_type": "{{ user `guest_os_type` }}",
+            "disk_size": "{{ user `disk_size` }}",
+            "memory" : "3072",
+            "cpus" : 3,
+            "output_directory" : "{{user `output_path`}}/{{user `name`}}",
+            "floppy_files": [
+                "../answer_files/2012_r2/Autounattend.xml",
+                "../scripts/Set-WinRM.ps1",
+                "../scripts/Start-Shutdown.bat"
+            ],
+            "vmx_data": {
+                "scsi0.virtualDev": "lsisas1068"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "powershell",
+            "elevated_user": "vagrant",
+            "elevated_password": "vagrant",
+            "scripts": [
+                "../scripts/Install-VMwareTools.ps1",
+                "../scripts/Install-Net35.ps1",
+                "../scripts/Install-WMF5.ps1"
+            ]
+        },
+        {
+            "type": "windows-restart"
+        },
+        {
+            "type": "powershell",
+            "elevated_user": "vagrant",
+            "elevated_password": "vagrant",
+            "scripts": [
+                "../scripts/Set-WMF5SysPrepRegFix.ps1"
+            ]
+        },
+        {
+            "type": "powershell",
+            "elevated_user": "vagrant",
+            "elevated_password": "vagrant",
+            "scripts": [
+                "../scripts/Remove-UpdateCache.ps1"
+            ]
+        },
+     ],
+    "post-processors": [
+    ]
+}

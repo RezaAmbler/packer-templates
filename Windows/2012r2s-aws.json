@@ -2,7 +2,9 @@
     "variables": {
         "name": "Windows-2012R2-Test",
         "aws_reza_access_key" : "",
-        "aws_reza_secret_access_key" : ""
+        "aws_reza_secret_access_key" : "",
+        "vpc_id" : "",
+        "subnet_id" : ""
     },
     "builders": [
         {
@@ -10,19 +12,24 @@
             "ami_name": "test-windows-2012-packer-reza {{timestamp | clean_ami_name}}",
             "access_key" : "{{user `aws_reza_access_key`}}",
             "secret_key" : "{{user `aws_reza_secret_access_key`}}",
+            "ssh_keypair_name" : "Reza-Oregon-Key",
+            "ssh_private_key_file" : "C:/Users/rezaa/Documents/Keys/Reza-Oregon-Key.pem",
             "region" : "us-west-2",
             "source_ami" : "ami-03833dcc7d9010c5a",
             "instance_type" : "t2.medium",
             "associate_public_ip_address" : "true",
-            "vpc_id" : "vpc-0f17a7b02da727a5c",
-            "subnet_id" : "subnet-0244786042ec22ca6",
-            "temporary_security_group_source_cidr" : "199.47.246.156/32",
+            "vpc_id" : "{{user `vpc_id`}}",
+            "subnet_id" : "{{user `subnet_id`}}",
+            "temporary_security_group_source_cidr" : "0.0.0.0/0",
             "communicator": "winrm",
-            "winrm_username": "vagrant",
-            "winrm_password": "vagrant",
+            "user_data_file":"scripts/EC2_UserData_HTTP.ps1",
+            "winrm_username": "Administrator",
             "winrm_timeout": "12h",
-            "winrm_port": "5985",
+            "winrm_use_ssl" : false,
+            "winrm_insecure" : true,
+            "winrm_port" : "5985",
             "tags": {
+                "Name" : "Packer Windows 2012",
                 "OS_Version": "Windows 2012 R2",
                 "Release": "Latest",
                 "Base_AMI_Name": "{{ .SourceAMIName }}",
@@ -35,57 +42,8 @@
     ],
     "provisioners": [
         {
-            "type": "powershell",
-            "environment_vars": [
-                "packer_timezone={{ user `timezone` }}"
-            ],
-            "script": "scripts/Set-TimeZone.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-                0,
-                3010
-            ]
-        },
-        {
           "type": "powershell",
-          "script": "scripts/Install-Chocolatey.ps1",
-          "elevated_user": "vagrant",
-          "elevated_password": "vagrant"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Install-PowerShell5.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Install-Choco-VMwareTools.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "inline" : ["choco install vmware-tools 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant"
+          "script": "scripts/Install-Chocolatey.ps1"
         }
     ],
     "post-processors": [

@@ -1,0 +1,22 @@
+Windows Build Specific Notes
+
+-------------------------------------------------------------------------------
+Disk_Type_ID:
+  https://www.packer.io/docs/builders/vmware-iso.html
+  Type ID	Description
+	0	Growable virtual disk contained in a single file (monolithic sparse).
+	1	Growable virtual disk split into 2GB files (split sparse).
+	2	Preallocated virtual disk contained in a single file (monolithic flat).
+	3	Preallocated virtual disk split into 2GB files (split flat).
+	4	Preallocated virtual disk compatible with ESX server (VMFS flat).
+	5	Compressed disk optimized for streaming.
+-------------------------------------------------------------------------------
+"skip_compaction": true,
+	(boolean) - VMware-created disks are defragmented and compacted at the end 
+	of the build process using vmware-vdiskmanager or vmkfstools in ESXi. In 
+	certain rare cases, this might actually end up making the resulting disks 
+	slightly larger. If you find this to be the case, you can disable 
+	compaction using this configuration value. Defaults to false. Default to 
+	true for ESXi when disk_type_id is not explicitly defined and false 
+	otherwise.
+-------------------------------------------------------------------------------

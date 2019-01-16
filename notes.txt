@@ -6,7 +6,12 @@
 #######
 # END #
 #######
+PACKERLOG
+PowerShell : 
+  $env:PACKER_LOG=1
+  $env:PACKER_LOG_PATH="packerlog.txt"
 
+provisioner shell-local to run commands on the host executing packer
 
 
 File : 2012r2s-workstation.json
@@ -57,4 +62,20 @@ Extra Parameters:
   "inline": [
       "d:/vmware/ovftool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{user `name`}}.vmx {{user `output_path`}}/{{user `name`}}.ova"
   ]
+}
+
+
+{
+    "type" : "vsphere",
+    "host": "{{ user `vcenter_host` }}",
+    "insecure": true,
+    "datacenter": "{{ user `vcenter_datacenter` }}",
+    "datastore": "{{ user `datastore` }}",
+    "cluster": "{{ user `cluster` }}",
+    "username": "{{ user `vcenter_user` }}",
+    "password": "{{ user `vcenter_pw` }}",
+    "vm_name" : "{{ user `vm_name` }}",
+    "vm_folder" : "{{ user `vm_folder` }}",
+    "vm_network" : "{{ user `vm_network` }}",
+    "overwrite": false
 }

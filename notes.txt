@@ -1,3 +1,14 @@
+########
+# TODO #
+########
+
+
+#######
+# END #
+#######
+
+
+
 File : 2012r2s-workstation.json
   "Windows could not apply the unattend answer file's <DiskConfiguration> setting."
   https://github.com/joefitzgerald/packer-windows/issues/259
@@ -41,18 +52,9 @@ Extra Parameters:
 
 - Post Processors :
 "post-processors": [
-  {
-    "type": "shell-local",
-    "inline": ["ovftool ../builds/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.vmx ../builds/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "],
-    "only": ["vmware-{{ user `name` }}"]
-  }
-
-  {
-  	"type": "shell-local",
-  	"inline": ["ovftool d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.vmx d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "],
-  }
-
-   {
-        "type": "shell-local",
-        "inline": ["C:/Program Files (x86)/VMware/VMware Workstation/OVFTool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{ user `name` }}.vmx d:/packer/ovf/packer-{{user `name`}}-vmware/{{ user `name` }}-vmware.ova "]
-    }
+{
+  "type": "shell-local",
+  "inline": [
+      "d:/vmware/ovftool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{user `name`}}.vmx {{user `output_path`}}/{{user `name`}}.ova"
+  ]
+}

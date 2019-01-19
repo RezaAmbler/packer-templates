@@ -4,7 +4,8 @@
         "aws_reza_access_key" : "",
         "aws_reza_secret_access_key" : "",
         "vpc_id" : "",
-        "subnet_id" : ""
+        "subnet_id" : "",
+        "timezone" : "Pacific Standard Time"
     },
     "builders": [
         {
@@ -43,7 +44,54 @@
     "provisioners": [
         {
           "type": "powershell",
-          "script": "scripts/Install-Chocolatey.ps1"
+          "elevated_user" : "Administrator",
+          "elevated_password" : "{{ .WinRMPassword }}",
+          "inline": [
+                "Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
+            ]
+        },
+        {
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Install-PowerShell5.ps1",
+            "elevated_user" : "Administrator",
+            "elevated_password" : "{{ .WinRMPassword }}",
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
+        },
+        {
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Install-Choco-VMwareTools.ps1",
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
+        },
+        {
+            "type" : "windows-restart",
+            "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"]
+        },
+        {
+            "type": "windows-update",
+            "search_criteria": "IsInstalled=0",
+            "filters": [
+                "exclude:$_.Title -like '*Preview*'",
+                "include:$true"
+            ],
+            "update_limit": 100
         }
     ],
     "post-processors": [

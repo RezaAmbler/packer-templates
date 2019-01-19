@@ -16,6 +16,7 @@
             "ssh_keypair_name" : "Reza-Oregon-Key",
             "ssh_private_key_file" : "C:/Users/rezaa/Documents/Keys/Reza-Oregon-Key.pem",
             "region" : "us-west-2",
+            "ami_regions" : "us-east-1",
             "source_ami" : "ami-03833dcc7d9010c5a",
             "instance_type" : "t2.medium",
             "associate_public_ip_address" : "true",
@@ -46,9 +47,7 @@
           "type": "powershell",
           "elevated_user" : "Administrator",
           "elevated_password" : "{{ .WinRMPassword }}",
-          "inline": [
-                "Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
-            ]
+          "script": "scripts/Install-Chocolatey.ps1"
         },
         {
             "type" : "windows-restart",
@@ -59,18 +58,6 @@
             "script" : "scripts/Install-PowerShell5.ps1",
             "elevated_user" : "Administrator",
             "elevated_password" : "{{ .WinRMPassword }}",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Install-Choco-VMwareTools.ps1",
             "valid_exit_codes": [
               0,
               3010

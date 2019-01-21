@@ -1,0 +1,3 @@
+AWS Notes
+
+1) Investigate if SysPrep is needed -- example scripts available under scripts/. We'll need to try joining a few test boxes to the domain under an account w/VPN connectivity back to the office.

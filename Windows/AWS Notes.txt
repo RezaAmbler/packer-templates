@@ -1,3 +1,6 @@
 AWS Notes
 
+packer build -var 'aws_reza_access_key=YOUR_KEY' -var 'aws_reza_secret_key=YOUR_SECRET' -var 'subnet_id=subnet-XXXXXX' -var 'security_group_id=sg-YYYYYY'
+
 1) Investigate if SysPrep is needed -- example scripts available under scripts/. We'll need to try joining a few test boxes to the domain under an account w/VPN connectivity back to the office.
+

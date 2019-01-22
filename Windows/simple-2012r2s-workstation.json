@@ -97,15 +97,6 @@
             "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
             "elevated_user": "vagrant",
             "elevated_password": "vagrant"
-        },
-        {
-            "type": "windows-update",
-            "search_criteria": "IsInstalled=0",
-            "filters": [
-                "exclude:$_.Title -like '*Preview*'",
-                "include:$true"
-            ],
-            "update_limit": 100
         }
     ],
     "post-processors": [

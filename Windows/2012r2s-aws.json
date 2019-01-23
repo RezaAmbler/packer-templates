@@ -23,7 +23,6 @@
                 "owners": ["801119661308"],
                 "most_recent" : "true"
             },
-            "ami_users" : [""],
             "instance_type" : "t2.medium",
             "associate_public_ip_address" : "false",
             "vpc_id" : "{{user `vpc_id`}}",
@@ -65,8 +64,8 @@
             "elevated_user" : "Administrator",
             "elevated_password" : "{{ .WinRMPassword }}",
             "environment_vars": [
-              "proxy_enabled={{ user `proxy_enabled` }}",
-              "http_proxy={{ user `http_proxy` }}"
+              "global_proxy_enabled={{ user `global_proxy_enabled` }}",
+              "global_http_proxy={{ user `global_http_proxy` }}"
             ],
             "script" : "scripts/Set-InternetProxy.ps1"
         },
@@ -75,7 +74,7 @@
           "elevated_user" : "Administrator",
           "elevated_password" : "{{ .WinRMPassword }}",
           "environment_vars": [
-              "proxy_enabled=$false",
+              "proxy_enabled={{ user `proxy_enabled` }}",
               "http_proxy={{ user `http_proxy` }}"
           ],
           "script": "scripts/Install-Chocolatey.ps1",
@@ -93,7 +92,7 @@
             "elevated_user" : "Administrator",
             "elevated_password" : "{{ .WinRMPassword }}",
             "environment_vars": [
-              "proxy_enabled=$false",
+              "proxy_enabled={{ user `proxy_enabled` }}",
               "http_proxy={{ user `http_proxy` }}"
             ],
             "script" : "scripts/Install-PowerShell5.ps1",
@@ -114,7 +113,37 @@
         },
         {
             "type" : "powershell",
-            "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"]
+            "elevated_user" : "Administrator",
+            "elevated_password" : "{{ .WinRMPassword }}",
+            "environment_vars": [
+              "proxy_enabled={{ user `proxy_enabled` }}",
+              "http_proxy={{ user `http_proxy` }}"
+            ],
+            "script" : "scripts/Update-Help.ps1",
+            "valid_exit_codes": [
+              0,
+              3010
+          ]
+        },
+        {
+            "type" : "powershell",
+            "elevated_user" : "Administrator",
+            "elevated_password" : "{{ .WinRMPassword }}",
+            "script" : "scripts/Disable-Windows-Firewall.ps1"
+        },
+        {
+            "type" : "powershell",
+            "environment_vars": [
+              "proxy_enabled={{ user `proxy_enabled` }}",
+              "chocolateyProxyLocation={{ user `http_proxy` }}"
+            ],
+            "script" : "scripts/Install-Chocolatey-Packages.ps1"
+        },
+        {
+            "type" : "powershell",
+            "elevated_user" : "Administrator",
+            "elevated_password" : "{{ .WinRMPassword }}",
+            "script" : "scripts/Run-NGen.ps1"
         },
         {
             "type" : "windows-restart",

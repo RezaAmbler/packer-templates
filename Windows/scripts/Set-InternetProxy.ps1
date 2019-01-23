@@ -74,6 +74,6 @@ Function Set-InternetProxy
 }
 
 
-if ($env:proxy_enabled -contains 'true') {
-    Set-InternetProxy -proxy "$env:http_proxy"
+if ($env:global_proxy_enabled -contains 'true') {
+    Set-InternetProxy -proxy "$env:global_http_proxy"
 }

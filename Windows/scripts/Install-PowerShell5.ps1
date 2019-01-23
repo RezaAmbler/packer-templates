@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 if ($PSVersionTable.PSVersion.Major -le 4) {
     if ($env:proxy_enabled -contains 'true') {
       Write-Host "==> Installing Newer Version of PowerShell"
-      $env:chocolateyProxyLocation = $env:proxy_string
+      $env:chocolateyProxyLocation = $env:http_proxy
       choco install powershell -y --no-progress
     }
     else {

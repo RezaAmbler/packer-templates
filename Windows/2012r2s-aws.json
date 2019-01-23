@@ -42,7 +42,7 @@
               "Release": "Latest",
               "Base_AMI_Name": "{{ .SourceAMIName }}",
               "Extra": "{{ .SourceAMITags.TagName }}",
-              "Purepose" : "Packer Testing",
+              "Purpose" : "Packer Testing",
               "Timestamp" : "{{timestamp}}",
               "Hoomann" : "Reza Ambler"
             },
@@ -52,7 +52,7 @@
               "Release": "Latest",
               "Base_AMI_Name": "{{ .SourceAMIName }}",
               "Extra": "{{ .SourceAMITags.TagName }}",
-              "Purepose" : "Packer Testing",
+              "Purpose" : "Packer Testing",
               "Timestamp" : "{{timestamp}}",
               "Hoomann" : "Reza Ambler" 
             }
@@ -135,7 +135,7 @@
             "type" : "powershell",
             "environment_vars": [
               "proxy_enabled={{ user `proxy_enabled` }}",
-              "chocolateyProxyLocation={{ user `http_proxy` }}"
+              "http_proxy={{ user `http_proxy` }}"
             ],
             "script" : "scripts/Install-Chocolatey-Packages.ps1"
         },
@@ -148,6 +148,14 @@
         {
             "type" : "windows-restart",
             "restart_timeout" : "10m"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Remove-UpdateCache.ps1"
+        },
+        {
+            "type" : "powershell",
+            "script" : "scripts/Update-AdministratorPassword.ps1"
         }
     ],
     "post-processors": [

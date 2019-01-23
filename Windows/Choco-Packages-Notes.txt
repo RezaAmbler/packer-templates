@@ -1,0 +1,30 @@
+Choco Package Notes -- what to include?
+
+-------------------------------------------------------------------------------
+Microsoft has released a security advisory for IT professionals about SHA-2 
+code signing support.
+https://chocolatey.org/packages/KB3033929
+https://technet.microsoft.com/en-us/library/security/3033929
+
+choco install dotnet3.5
+https://chocolatey.org/packages/DotNet3.5
+This installs the .net framework version 3.5 (includes versions 2.0 and 3.0). 
+This package does not directly download any software. It uses the Windows 
+Features and functionality of the operating system to enable the feature. 
+
+choco install dotnet4.6.2
+https://chocolatey.org/packages/dotnet4.6.2/4.6.01590.20170129
+The Microsoft .NET Framework 4.6.2 is a highly compatible in-place update to 
+the Microsoft .NET Framework 4, the .NET Framework 4.5, the .NET Framework 
+4.5.1, the .NET Framework 4.5.2, the .NET Framework 4.6, and the .NET 
+Framework 4.6.1.
+
+
+https://www.elastic.co/guide/en/beats/winlogbeat/current/_winlogbeat_overview.html
+https://chocolatey.org/packages/winlogbeat
+Winlogbeat ships Windows event logs to Elasticsearch or Logstash. You can 
+install it as a Windows service.
+Winlogbeat reads from one or more event logs using Windows APIs, filters the 
+events based on user-configured criteria, then sends the event data to the 
+configured outputs (Elasticsearch or Logstash). 
+-------------------------------------------------------------------------------

@@ -1,123 +1,152 @@
 {
-    "variables": {
-        "name": "Windows-2012R2-Test",
-        "guest_os_type": "windows8srv-64",
-        "iso_checksum_retail": "",
-        "iso_url_retail": "",
-        "iso_checksum_type": "",
-        "disk_size" : "40000",
-        "output_path": "D:/packer/builds",
-        "ovf_output_path": "D:/packer/ovf",
-        "timezone" : "Pacific Standard Time"
+  "variables": {
+    "name": "Windows-2012R2-Test",
+    "guest_os_type": "windows8srv-64",
+    "iso_checksum_retail": "",
+    "iso_url_retail": "",
+    "iso_checksum_type": "",
+    "disk_size" : "40000",
+    "output_path": "D:/packer/builds",
+    "ovf_output_path": "D:/packer/ovf",
+    "timezone" : "Pacific Standard Time",
+    "aws_s3_bucket": "",
+    "aws_s3_profile": "",
+    "vsphere_cluster": "",
+    "vsphere_datacenter": "",
+    "vsphere_datastore": "",
+    "vsphere_host": "",
+    "vsphere_password": "",
+    "vsphere_username": "",
+    "vsphere_folder": ""
+  },
+  "builders": [
+    {
+      "type": "vmware-iso",
+      "vm_name": "{{ user `name` }}",
+      "vmdk_name": "{{ user `name` }}",
+      "iso_url": "{{ user `iso_url_retail` }}",
+      "iso_checksum": "{{ user `iso_checksum_retail` }}",
+      "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+      "communicator": "winrm",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "12h",
+      "winrm_port": "5985",
+      "vnc_port_min": 5900,
+      "vnc_port_max": 5980,
+      "shutdown_command": "a:/Start-Shutdown.bat",
+      "shutdown_timeout": "15m",
+      "headless": "false",
+      "guest_os_type": "{{ user `guest_os_type` }}",
+      "disk_size": "{{ user `disk_size` }}",
+      "memory" : "3072",
+      "cpus" : 3,
+      "output_directory" : "{{user `output_path`}}/{{user `name`}}",
+      "floppy_files": [
+        "answer_files/2012_r2/Autounattend.xml",
+        "scripts/Set-WinRM.ps1",
+        "scripts/Start-Shutdown.bat"
+      ],
+      "vmx_data": {
+        "scsi0.virtualDev": "lsisas1068"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "environment_vars": [
+        "packer_timezone={{ user `timezone` }}"
+      ],
+      "script": "scripts/Set-TimeZone.ps1",
+      "elevated_user": "vagrant",
+      "elevated_password": "vagrant",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
     },
-    "builders": [
-        {
-            "type": "vmware-iso",
-            "vm_name": "{{ user `name` }}",
-            "vmdk_name": "{{ user `name` }}",
-            "iso_url": "{{ user `iso_url_retail` }}",
-            "iso_checksum": "{{ user `iso_checksum_retail` }}",
-            "iso_checksum_type": "{{ user `iso_checksum_type` }}",
-            "communicator": "winrm",
-            "winrm_username": "vagrant",
-            "winrm_password": "vagrant",
-            "winrm_timeout": "12h",
-            "winrm_port": "5985",
-            "vnc_port_min": 5900,
-            "vnc_port_max": 5980,
-            "shutdown_command": "a:/Start-Shutdown.bat",
-            "shutdown_timeout": "15m",
-            "headless": "false",
-            "guest_os_type": "{{ user `guest_os_type` }}",
-            "disk_type_id" : "4",
-            "disk_size": "{{ user `disk_size` }}",
-            "memory" : "3072",
-            "cpus" : 3,
-            "output_directory" : "{{user `output_path`}}/{{user `name`}}",
-            "floppy_files": [
-                "answer_files/2012_r2/Autounattend.xml",
-                "scripts/Set-WinRM.ps1",
-                "scripts/Start-Shutdown.bat"
-            ],
-            "vmx_data": {
-                "scsi0.virtualDev": "lsisas1068"
-            }
-        }
+    {
+      "type": "powershell",
+      "script": "scripts/Install-Chocolatey.ps1",
+      "elevated_user": "vagrant",
+      "elevated_password": "vagrant"
+    },
+    {
+      "type" : "powershell",
+      "script" : "scripts/Install-PowerShell5.ps1",
+      "elevated_user": "vagrant",
+      "elevated_password": "vagrant",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type" : "powershell",
+      "script" : "scripts/Install-Choco-VMwareTools.ps1",
+      "elevated_user": "vagrant",
+      "elevated_password": "vagrant",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type" : "powershell",
+      "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
+      "elevated_user": "vagrant",
+      "elevated_password": "vagrant"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "vsphere",
+        "cluster": "{{user `vsphere_cluster`}}",
+        "datacenter": "{{user `vsphere_datacenter`}}",
+        "datastore": "{{user `vsphere_datastore`}}",
+        "host": "{{user `vsphere_host`}}",
+        "insecure": true,
+        "username": "{{user `vsphere_username`}}",
+        "password": "{{user `vsphere_password`}}",
+        "vm_name": "{{user `name`}}",
+        "vm_folder": "{{user `vsphere_vm_folder`}}",
+        "vm_network": "{{user `vsphere_vm_network`}}",
+        "disk_mode": "thick",
+        "overwrite": true,
+        "options": [
+          "--X:logFile=upload.log",
+          "--X:logLevel=verbose"
+        ]
+      },
+      {
+        "type": "vsphere-template",
+        "host": "{{ user `vsphere_host` }}",
+        "datacenter": "{{ user `vsphere_datacenter` }}",
+        "insecure": true,
+        "username": "{{ user `vsphere_username` }}",
+        "password": "{{ user `vsphere_password` }}",
+        "folder" : "{{ user `vsphere_vm_folder` }}"
+      }
     ],
-    "provisioners": [
-        {
-            "type": "powershell",
-            "environment_vars": [
-                "packer_timezone={{ user `timezone` }}"
-                ],
-            "script": "scripts/Set-TimeZone.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-                0,
-                3010
-            ]
-        },
-        {
-          "type": "powershell",
-          "script": "scripts/Install-Chocolatey.ps1",
-          "elevated_user": "vagrant",
-          "elevated_password": "vagrant"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Install-PowerShell5.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Install-Choco-VMwareTools.ps1",
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "inline" : ["choco install 7zip putty.install notepadplusplus sysinternals remote-syslog2 -y --no-progress"],
-            "elevated_user": "vagrant",
-            "elevated_password": "vagrant"
-        },
-        {
-            "type": "windows-update",
-            "search_criteria": "IsInstalled=0",
-            "filters": [
-                "exclude:$_.Title -like '*Preview*'",
-                "include:$true"
-            ],
-            "update_limit": 100
-        }
-    ],
-    "post-processors": [
-        {
-            "type": "shell-local",
-            "inline": [
-              "d:/vmware/ovftool/ovftool.exe {{user `output_path`}}/{{user `name`}}/{{user `name`}}.vmx {{user `output_path`}}/{{user `name`}}.ova"
-            ]
-        },
-        {
-            "type": "shell-local",
-             "inline": ["aws s3 cp {{user `output_path`}}/{{user `name`}}.ova s3://rezaambler --profile=reza"]
-        }
-    ]
+    {
+      "type": "shell-local",
+      "inline": [
+        "ovftool.exe {{user `output_path`}}/{{user `name`}}/{{user `name`}}.vmx {{user `output_path`}}/{{user `name`}}.ova"
+      ]
+    },
+    {
+      "type": "shell-local",
+      "inline": ["aws s3 cp {{user `output_path`}}/{{user `name`}}.ova s3://{{user `aws_s3_bucket`}} --profile={{user `aws_s3_profile`}}"]
+    }
+  ]
 }

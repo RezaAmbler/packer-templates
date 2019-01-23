@@ -11,3 +11,4 @@ if ($env:proxy_enabled -contains 'true') {
     Write-Output "==> Installing chocolatey without proxy"
     Invoke-WebRequest -Uri 'https://chocolatey.org/install.ps1' -UseBasicParsing | Invoke-Expression
   }
+  

@@ -16,3 +16,4 @@ if  ($env:proxy_enabled) {
         update-help -force -verbose
         Write-Output "==> Completed updating powershell help files"
     }
+    

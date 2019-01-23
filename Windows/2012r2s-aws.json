@@ -1,163 +1,163 @@
 {
-    "variables": {
-        "name": "Windows-2012R2-Test",
-        "aws_reza_access_key" : "",
-        "aws_reza_secret_access_key" : "",
-        "vpc_id" : "",
-        "subnet_id" : "",
-        "timezone" : "Pacific Standard Time"
+  "variables": {
+    "name": "Windows-2012R2-Test",
+    "aws_reza_access_key" : "",
+    "aws_reza_secret_access_key" : "",
+    "vpc_id" : "",
+    "subnet_id" : "",
+    "timezone" : "Pacific Standard Time"
+  },
+  "builders": [ 
+    {
+      "type": "amazon-ebs",
+      "ami_name": "test-windows-2012-packer-reza {{timestamp | clean_ami_name}}",
+      "access_key" : "{{user `aws_reza_access_key`}}",
+      "secret_key" : "{{user `aws_reza_secret_access_key`}}",
+      "ssh_keypair_name" : "Reza-Packer-Test-POC",
+      "ssh_private_key_file" : "C:/Users/rezaa/Documents/Keys/Reza-Packer-Test-POC.pem",
+      "region" : "us-west-2",
+      "source_ami_filter": {
+          "filters": {
+          "name": "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
+        },
+        "owners": ["801119661308"],
+        "most_recent" : "true"
+      },
+      "instance_type" : "t2.medium",
+      "associate_public_ip_address" : "false",
+      "vpc_id" : "{{user `vpc_id`}}",
+      "subnet_id" : "{{user `subnet_id`}}",
+      "security_group_id" : "sg-091219abc8707f02e",
+      "encrypt_boot" : "false",
+      "communicator": "winrm",
+      "user_data_file":"scripts/EC2_UserData_HTTP.ps1",
+      "winrm_username": "Administrator",
+      "winrm_timeout": "12h",
+      "winrm_use_ssl" : false,
+      "winrm_insecure" : true,
+      "winrm_port" : "5985",
+      "tags": {
+        "Name" : "Packer Windows 2012",
+        "OS_Version": "Windows 2012 R2",
+        "Release": "Latest",
+        "Base_AMI_Name": "{{ .SourceAMIName }}",
+        "Extra": "{{ .SourceAMITags.TagName }}",
+        "Purpose" : "Packer Testing",
+        "Timestamp" : "{{timestamp}}",
+        "Hoomann" : "Reza Ambler"
+      },
+      "run_volume_tags" : {
+        "Name" : "Packer Windows 2012",
+        "OS_Version": "Windows 2012 R2",
+        "Release": "Latest",
+        "Base_AMI_Name": "{{ .SourceAMIName }}",
+        "Extra": "{{ .SourceAMITags.TagName }}",
+        "Purpose" : "Packer Testing",
+        "Timestamp" : "{{timestamp}}",
+        "Hoomann" : "Reza Ambler" 
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type" : "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "environment_vars": [
+        "global_proxy_enabled={{ user `global_proxy_enabled` }}",
+        "global_http_proxy={{ user `global_http_proxy` }}"
+      ],
+      "script" : "scripts/Set-InternetProxy.ps1"
     },
-    "builders": [
-        {
-            "type": "amazon-ebs",
-            "ami_name": "test-windows-2012-packer-reza {{timestamp | clean_ami_name}}",
-            "access_key" : "{{user `aws_reza_access_key`}}",
-            "secret_key" : "{{user `aws_reza_secret_access_key`}}",
-            "ssh_keypair_name" : "Reza-Packer-Test-POC",
-            "ssh_private_key_file" : "C:/Users/rezaa/Documents/Keys/Reza-Packer-Test-POC.pem",
-            "region" : "us-west-2",
-            "source_ami_filter": {
-                    "filters": {
-                    "name": "Windows_Server-2012-R2_RTM-English-64Bit-Base-*"
-                },
-                "owners": ["801119661308"],
-                "most_recent" : "true"
-            },
-            "instance_type" : "t2.medium",
-            "associate_public_ip_address" : "false",
-            "vpc_id" : "{{user `vpc_id`}}",
-            "subnet_id" : "{{user `subnet_id`}}",
-            "security_group_id" : "sg-091219abc8707f02e",
-            "encrypt_boot" : "false",
-            "communicator": "winrm",
-            "user_data_file":"scripts/EC2_UserData_HTTP.ps1",
-            "winrm_username": "Administrator",
-            "winrm_timeout": "12h",
-            "winrm_use_ssl" : false,
-            "winrm_insecure" : true,
-            "winrm_port" : "5985",
-            "tags": {
-              "Name" : "Packer Windows 2012",
-              "OS_Version": "Windows 2012 R2",
-              "Release": "Latest",
-              "Base_AMI_Name": "{{ .SourceAMIName }}",
-              "Extra": "{{ .SourceAMITags.TagName }}",
-              "Purpose" : "Packer Testing",
-              "Timestamp" : "{{timestamp}}",
-              "Hoomann" : "Reza Ambler"
-            },
-            "run_volume_tags" : {
-              "Name" : "Packer Windows 2012",
-              "OS_Version": "Windows 2012 R2",
-              "Release": "Latest",
-              "Base_AMI_Name": "{{ .SourceAMIName }}",
-              "Extra": "{{ .SourceAMITags.TagName }}",
-              "Purpose" : "Packer Testing",
-              "Timestamp" : "{{timestamp}}",
-              "Hoomann" : "Reza Ambler" 
-            }
-        }
-    ],
-    "provisioners": [
-        {
-            "type" : "powershell",
-            "elevated_user" : "Administrator",
-            "elevated_password" : "{{ .WinRMPassword }}",
-            "environment_vars": [
-              "global_proxy_enabled={{ user `global_proxy_enabled` }}",
-              "global_http_proxy={{ user `global_http_proxy` }}"
-            ],
-            "script" : "scripts/Set-InternetProxy.ps1"
-        },
-        {
-          "type": "powershell",
-          "elevated_user" : "Administrator",
-          "elevated_password" : "{{ .WinRMPassword }}",
-          "environment_vars": [
-              "proxy_enabled={{ user `proxy_enabled` }}",
-              "http_proxy={{ user `http_proxy` }}"
-          ],
-          "script": "scripts/Install-Chocolatey.ps1",
-          "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "elevated_user" : "Administrator",
-            "elevated_password" : "{{ .WinRMPassword }}",
-            "environment_vars": [
-              "proxy_enabled={{ user `proxy_enabled` }}",
-              "http_proxy={{ user `http_proxy` }}"
-            ],
-            "script" : "scripts/Install-PowerShell5.ps1",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type": "powershell",
-            "inline" : [
-                "Add-WindowsFeature SNMP-Service -verbose"
-            ]
-        },
-        {
-            "type" : "powershell",
-            "elevated_user" : "Administrator",
-            "elevated_password" : "{{ .WinRMPassword }}",
-            "environment_vars": [
-              "proxy_enabled={{ user `proxy_enabled` }}",
-              "http_proxy={{ user `http_proxy` }}"
-            ],
-            "script" : "scripts/Update-Help.ps1",
-            "valid_exit_codes": [
-              0,
-              3010
-          ]
-        },
-        {
-            "type" : "powershell",
-            "elevated_user" : "Administrator",
-            "elevated_password" : "{{ .WinRMPassword }}",
-            "script" : "scripts/Disable-Windows-Firewall.ps1"
-        },
-        {
-            "type" : "powershell",
-            "environment_vars": [
-              "proxy_enabled={{ user `proxy_enabled` }}",
-              "http_proxy={{ user `http_proxy` }}"
-            ],
-            "script" : "scripts/Install-Chocolatey-Packages.ps1"
-        },
-        {
-            "type" : "powershell",
-            "elevated_user" : "Administrator",
-            "elevated_password" : "{{ .WinRMPassword }}",
-            "script" : "scripts/Run-NGen.ps1"
-        },
-        {
-            "type" : "windows-restart",
-            "restart_timeout" : "10m"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Remove-UpdateCache.ps1"
-        },
-        {
-            "type" : "powershell",
-            "script" : "scripts/Update-AdministratorPassword.ps1"
-        }
-    ],
-    "post-processors": [
-    ]
+    {
+      "type": "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "environment_vars": [
+        "proxy_enabled={{ user `proxy_enabled` }}",
+        "http_proxy={{ user `http_proxy` }}"
+      ],
+      "script": "scripts/Install-Chocolatey.ps1",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type" : "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "environment_vars": [
+        "proxy_enabled={{ user `proxy_enabled` }}",
+        "http_proxy={{ user `http_proxy` }}"
+      ],
+      "script" : "scripts/Install-PowerShell5.ps1",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type": "powershell",
+      "inline" : [
+        "Add-WindowsFeature SNMP-Service -verbose"
+      ]
+    },
+    {
+      "type" : "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "environment_vars": [
+        "proxy_enabled={{ user `proxy_enabled` }}",
+        "http_proxy={{ user `http_proxy` }}"
+      ],
+      "script" : "scripts/Update-Help.ps1",
+      "valid_exit_codes": [
+        0,
+        3010
+      ]
+    },
+    {
+      "type" : "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "script" : "scripts/Disable-Windows-Firewall.ps1"
+    },
+    {
+      "type" : "powershell",
+      "environment_vars": [
+        "proxy_enabled={{ user `proxy_enabled` }}",
+        "http_proxy={{ user `http_proxy` }}"
+      ],
+      "script" : "scripts/Install-Chocolatey-Packages.ps1"
+    },
+    {
+      "type" : "powershell",
+      "elevated_user" : "Administrator",
+      "elevated_password" : "{{ .WinRMPassword }}",
+      "script" : "scripts/Run-NGen.ps1"
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type" : "powershell",
+      "script" : "scripts/Remove-UpdateCache.ps1"
+    },
+    {
+      "type" : "powershell",
+      "script" : "scripts/Update-AdministratorPassword.ps1"
+    }
+  ],
+  "post-processors": [
+  ]
 }

@@ -23,3 +23,6 @@ vsphere-2012r2s.json
 vsphere-2016s.json
 packerlog.txt
 crash.log
+Windows/2012r2-vars.json
+Windows/upload.log
+Windows/2012r2s-aws.json

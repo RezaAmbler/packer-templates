@@ -20,3 +20,5 @@ Disk_Type_ID:
 	true for ESXi when disk_type_id is not explicitly defined and false 
 	otherwise.
 -------------------------------------------------------------------------------
+Windows 2012 Workstation build
+packer build -force -on-error=abort -var-file="" -var "aws_s3_bucket=" -var "aws_s3_profile=" -var "vsphere_cluster=" -var "vsphere_datacenter=" -var "vsphere_host=" -var "vsphere_username=" -var "vsphere_password=" -var "vsphere_folder="Templates" simple-2012r2s-workstation.json

@@ -1,6 +1,6 @@
 {
   "variables": {
-     "name": "Windows-2012R2-Packer-Test",
+    "name": "Windows-2012R2-Packer-Test",
     "guest_os_type": "windows8srv-64",
     "iso_checksum_retail": "",
     "iso_url_retail": "",
@@ -114,12 +114,28 @@
     },
     {
       "type" : "powershell",
+      "elevated_user" : "vagrant",
+      "elevated_password" : "vagrant",
       "script" : "scripts/Install-Chocolatey-Packages.ps1"
     },
     {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
       "type" : "powershell",
-      "elevated_user" : "Administrator",
-      "elevated_password" : "{{ .WinRMPassword }}",
+      "elevated_user" : "vagrant",
+      "elevated_password" : "vagrant",
+      "script" : "scripts/Install-Choco-Dotnet.ps1"
+    },
+    {
+      "type" : "windows-restart",
+      "restart_timeout" : "10m"
+    },
+    {
+      "type" : "powershell",
+      "elevated_user" : "vagrant",
+      "elevated_password" : "vagrant",
       "script" : "scripts/Run-NGen.ps1"
     },
     {
@@ -138,8 +154,8 @@
     },
     {
       "type" : "powershell",
-      "elevated_user" : "Administrator",
-      "elevated_password" : "{{ .WinRMPassword }}",
+      "elevated_user" : "vagrant",
+      "elevated_password" : "vagrant",
       "script" : "scripts/Disable-Windows-Firewall.ps1"
     },
     {
